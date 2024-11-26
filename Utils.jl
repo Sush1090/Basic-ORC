@@ -247,3 +247,27 @@ end
     
      compose(ODESystem(eqs, t, vars, para;name=name),inport,outport)
 end
+
+@component function MassSink(;name)
+    @named port = fluidPort()
+    vars = @variables begin
+       s(t)
+       T(t)
+       p(t)
+       h(t)
+       z(t)
+    end
+    para = @parameters begin
+
+     end
+     eqs = [
+        z ~ port.z
+        T ~ port.T
+        p ~ port.p
+        h ~ Enthalpy(model,p,T,z)
+        s ~ Entropy(model,p,T,z)
+
+     ]
+    
+     compose(ODESystem(eqs, t, vars, para;name=name),port)
+end

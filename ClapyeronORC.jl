@@ -12,12 +12,14 @@ composition = [0.5,0.5] # by mass percentage
 @named pump = Pump()
 @named evap = Evaporator()
 @named expander = Expander()
+@named sink =  MassSink()
 eqs = [
         connect(src.port,pump.inport)
         connect(pump.outport,evap.inport)
         connect(evap.outport,expander.inport)
+        connect(expander.outport,sink.port)
     ]
-systems=[src,pump,evap,expander] # Define system
+systems=[src,pump,evap,expander,sink] # Define system
 
 @named orc = System(eqs, t, systems=systems)
 sys = structural_simplify(orc)
@@ -33,4 +35,4 @@ power = sol[expander.h_out][1] - sol[expander.h_in][1]
 heat =  sol[evap.h_out][1] - sol[evap.h_in][1]
 pump_work = sol[pump.h_out][1] - sol[pump.h_in][1]
 η =  (power + pump_work)/heat
-@show abs(η)
+@info "Efficiency ORC = $(abs(η))" 
