@@ -11,5 +11,7 @@ components are:
         4.  Expander
         5.  Mass Sink 
 
-        
-connecting node variables are T-p and mass flow rate
+
+connecting node variables are T-p and mass flow rate.
+
+Specifiy for subcritical parameters else Clapyeron functions might give some interal error
