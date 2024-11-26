@@ -8,5 +8,5 @@ components are:
     2. Pump
     3. Evaporator
     4. Expander
-     
+    5. Mass Sink 
 connecting node variables are T-p and mass flow rate
