@@ -4,7 +4,7 @@ using ModelingToolkit: t_nounits as t, D_nounits as D
 
 fluids =["pentane","butane"]
 global model = cPR(fluids,idealmodel = ReidIdeal)
-include("Uitil.jl")
+include("Utils.jl")
 include("Process.jl")
 
 composition = [0.5,0.5] # by mass percentage
