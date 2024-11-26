@@ -15,3 +15,5 @@ components are:
 connecting node variables are T-p and mass flow rate.
 
 Specifiy for subcritical parameters else Clapyeron functions might give some interal error
+
+Uses the latest master branch of Clapeyron. 
