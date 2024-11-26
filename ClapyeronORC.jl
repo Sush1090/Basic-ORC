@@ -2,7 +2,7 @@ using ModelingToolkit, DifferentialEquations, Clapeyron
 using ModelingToolkit: t_nounits as t, D_nounits as D
 
 
-fluids =["pentane","butane"]
+fluids =["toluene","isopentane"]
 global model = cPR(fluids,idealmodel = ReidIdeal)
 include("Utils.jl")
 include("Process.jl")
